@@ -23,3 +23,6 @@ Route::resource('visiteurs', '\App\Http\Controllers\VisiteurController');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('fichefrais','\App\Http\Controllers\FicheFraisController');
+
+Route::resource('infovisiteurs', '\App\Http\Controllers\InfoVisiteurController');
