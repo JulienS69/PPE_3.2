@@ -14,12 +14,12 @@ class CreateLignefraishorsforfaitsTable extends Migration
     public function up()
     {
         Schema::create('lignefraishorsforfaits', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger("visiteur_id");
+            $table->char('id')->autoIncrement()->primary();
+            $table->char("visiteur_id");
             $table->string("mois");
-            $table->string("libelle");
-            $table->date("date");
-            $table->double("montant");
+            $table->string("libelle")->default(null);
+            $table->date("date")->default(null);
+            $table->double("montant")->default(null);
             $table->foreign("visiteur_id")
                 ->references("id")
                 ->on("visiteurs");

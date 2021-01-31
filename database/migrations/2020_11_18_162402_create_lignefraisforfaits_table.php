@@ -14,17 +14,17 @@ class CreateLignefraisforfaitsTable extends Migration
     public function up()
     {
         Schema::create('lignefraisforfaits', function (Blueprint $table) {
-            $table->increments('id'); //int(11)
-            $table->unsignedInteger("visiteur_id");
+            $table->char('id')->primary(); //int(11)
+            $table->char("visiteur_id");
             $table->string("mois");
-            $table->unsignedInteger("fraisforfaits_id");
-            $table->integer("quantite");
-            $table->foreign("fraisforfaits_id")
-                ->references("id")
-                ->on("fraisforfaits");
+            $table->char("frais-forfaits_id");
+            $table->integer("quantite")->default(null);
             $table->foreign("visiteur_id")
                 ->references("id")
                 ->on("visiteurs");
+            $table->foreign("frais-forfaits_id")
+                ->references("id")
+                ->on("fraisforfaits");
             $table->timestamps();
         });
     }

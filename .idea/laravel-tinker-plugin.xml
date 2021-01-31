@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="laravelTinkerProject">
+    <option name="lastCode" value="&lt;?php&#10;User::create(['name' =&gt; 'Durand', 'email' =&gt; 'durand@chezlui.fr', 'password' =&gt; 'pass']);&#10;" />
+  </component>
+</project>

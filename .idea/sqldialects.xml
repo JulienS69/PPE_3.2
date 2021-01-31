@@ -2,5 +2,6 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/database/gsbfrais.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/gsbfrais.sql" dialect="MariaDB" />
   </component>
 </project>
