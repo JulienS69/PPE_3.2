@@ -14,9 +14,8 @@ class CreateLignefraisforfaitsTable extends Migration
     public function up()
     {
         Schema::create('lignefraisforfaits', function (Blueprint $table) {
-            $table->increments('id'); //int(11)
             $table->unsignedInteger("visiteur_id");
-            $table->string("mois");
+            $table->date("mois");
             $table->unsignedInteger("fraisforfaits_id");
             $table->integer("quantite");
             $table->foreign("fraisforfaits_id")
@@ -27,6 +26,8 @@ class CreateLignefraisforfaitsTable extends Migration
                 ->on("visiteurs");
             $table->timestamps();
         });
+
+        DB::unprepared("ALTER TABLE `lignefraisforfaits` ADD PRIMARY KEY (`visiteur_id`,`mois`,`fraisforfaits_id`)");
     }
 
     /**
