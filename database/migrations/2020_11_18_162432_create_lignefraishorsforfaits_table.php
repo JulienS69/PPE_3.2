@@ -16,7 +16,7 @@ class CreateLignefraishorsforfaitsTable extends Migration
         Schema::create('lignefraishorsforfaits', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger("visiteur_id");
-            $table->string("mois");
+            $table->string("mois")->nullable();
             $table->string("libelle");
             $table->date("date");
             $table->double("montant");

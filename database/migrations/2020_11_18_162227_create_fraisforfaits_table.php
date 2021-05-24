@@ -16,7 +16,7 @@ class CreateFraisforfaitsTable extends Migration
         Schema::create('fraisforfaits', function (Blueprint $table) {
             $table->increments('id');
             $table->string('libelle');
-            $table->double('montant');
+            $table->double('montant')->nullable();
             $table->timestamps();
         });
     }

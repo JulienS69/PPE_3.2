@@ -14,21 +14,22 @@ class CreateFichefraisTable extends Migration
     public function up()
     {
         Schema::create('fichefrais', function (Blueprint $table) {
-            $table->increments('id');
             $table->unsignedInteger("visiteur_id");
-            $table->string("mois");
+            $table->date("mois");
             $table->integer("nbJustificatifs");
             $table->double("montantValide");
             $table->date("dateModif");
-            $table->unsignedInteger("etat_id");
+            $table->unsignedInteger("idEtat");
             $table->foreign("visiteur_id")
                 ->references("id")
                 ->on("visiteurs");
-            $table->foreign("etat_id")
+            $table->foreign("idEtat")
                 ->references("id")
                 ->on("etats");
             $table->timestamps();
         });
+
+        DB::unprepared("ALTER TABLE `fichefrais` ADD PRIMARY KEY (`visiteur_id`,`mois`)");
     }
 
     /**
