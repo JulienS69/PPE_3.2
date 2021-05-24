@@ -1,3 +1,5 @@
+<!-- Vue qui consiste à afficher le tableau de bord "Vous êtes connecté en tant que..." -->
+
 @extends('layouts.app')
 
 <head>

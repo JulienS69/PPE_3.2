@@ -1,3 +1,5 @@
+<!-- Vue qui consiste à afficher toutes les fiches de frais hors forfait de l'utilisateur connecté-->
+
 @extends('layouts/app')
 <link rel="icon" href="{{asset('images/pill.ico')}}">
 @section('extra-css')
@@ -29,6 +31,10 @@
                     <td colspan="12"><i class="fa fa-warning"></i>Aucunes fiches de frais créées</td>
                 </tr>
                 @endif !-->
+
+                <!-- Foreach permettant de récupérer la variable définit dans notre controller ($getFFHF) qui récupère l'intégralité des fiches de frais hors forfaits
+                entrées par le visiteurs précédement et pour chaque colonnes on affiche l'id du visiteur, le mois, le libelle, la date et le montant de la fiches renseigné par l'utilisateur lors
+                 de la création de la fiche -->
                 @foreach($getFFHF as $FicheFraisHorsForfait)
                     <tr>
                         <td>{{$FicheFraisHorsForfait->visiteur_id}}</td>

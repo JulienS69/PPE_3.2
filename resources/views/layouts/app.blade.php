@@ -18,7 +18,6 @@
     <link rel="icon" href="{{asset('images/pill.ico')}}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @yield('extra-css')
 
 </head>
@@ -26,9 +25,8 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Galaxy Swiss Bourdain') }}
-            </a>
+            <a href="{{ url('/') }}">
+            <img  href="{{"/"}}" src="{{asset('images/logo-gsb_50_50.png')}}">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -46,32 +44,31 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
                             </li>
                         @endif
-
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                             </li>
                         @endif
                     @else
-                        <li class="nav-item"><a href="{{route('fichefrais.index')}}" class="nav-link">Création d'une fiche de frais</a>
+                        <li class="nav-item"><a href="{{route('fichefrais.index')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Création d'une fiche de frais</a>
                         </li>
-                        <li class="nav-item"><a href="{{route('fichefraishorsforfait.index')}}" class="nav-link">Création d'une fiche de frais hors forfait</a>
+                        <li class="nav-item"><a href="{{route('fichefraishorsforfait.index')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Création d'une fiche de frais hors forfait</a>
                         </li>
-                        <li class="nav-item"><a href="{{route('visualisationfichefrais.show')}}" class="nav-link">Consulter les fiches de frais</a>
+                        <li class="nav-item"><a href="{{route('visualisationfichefrais.show')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Consulter les fiches de frais</a>
                         </li>
-                        <li class="nav-item"><a href="{{route('visualisationfichefraishorsforfait.show')}}" class="nav-link">Consulter les fiches de frais hors forfait</a>
+                        <li class="nav-item"><a href="{{route('visualisationfichefraishorsforfait.show')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Consulter les fiches de frais hors forfait</a>
                         </li>
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: bold; color: #38c172" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();" style="color: #c51f1a">
                                         {{ __('Se déconnecter') }}
                                     </a>
 
