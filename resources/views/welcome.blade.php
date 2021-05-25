@@ -427,13 +427,14 @@
         </div>
         <div class="text-box">
             @else
-                <a href="{{ route('login') }}" class="btn btn-white btn-animate">Se connecter</a>
+                <a href="{{ route('login') }}" class="btn btn-white btn-animate" style="margin-left: 25px;
+                    margin-top: -1vh;">Se connecter</a>
         </div>
-        @if (Route::has('register'))
-            <div class="text-box1">
-                <a href="{{ route('register') }}" class="btn btn-white btn-animate">S'inscrire</a>
+    <!-- @if (Route::has('register'))
+        <div class="text-box1">
+            <a href="{{ route('register') }}" class="btn btn-white btn-animate">S'inscrire</a>
             </div>
-        @endif
+        @endif -->
     @endauth
     @endif
     <svg class="pulse" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -457,7 +458,7 @@
     }
 
     .text-box1 {
-        margin-right: 160px;
+        margin-right: 190px;
         margin-top: 30vh;
     }
 

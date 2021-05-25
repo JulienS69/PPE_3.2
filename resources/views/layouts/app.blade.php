@@ -41,14 +41,15 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}"><!--{{ __('Connexion') }}--></a>
                             </li>
                         @endif
-                        @if (Route::has('register'))
+
+                    <!--    @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                             </li>
-                        @endif
+                        @endif -->
                     @else
                         <li class="nav-item"><a href="{{route('fichefrais.index')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Création d'une fiche de frais</a>
                         </li>
