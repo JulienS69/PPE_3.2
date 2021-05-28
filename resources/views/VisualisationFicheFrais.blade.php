@@ -1,10 +1,8 @@
 <!-- Vue qui consiste à afficher toutes les fiches de frais de l'utilisateur connecté-->
 
 @extends('layouts/app')
-
-
-<title>GALAXY SWISS BOURDIN</title>
 <link rel="icon" href="{{asset('images/pill.ico')}}">
+
 @section('extra-css')
 
     <link href="{{asset('css/visualisationfichefrais.css')}}">
@@ -13,11 +11,23 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
 @endsection
 
 @section('content')
 
     <body>
+    <div class="form-row" style="margin-top: 15px;">
+        <div class="col">
+            <h1 style="font-size: 25px;font-family: 'Lobster Two', cursive, sans-serif;text-align: center;margin-left: 15%;">
+                Consulter ou Modifier des Fiches de Frais</h1>
+        </div>
+    </div>
+    <br>
+    <br>
     <div class="col-md-12 search-table-col">
         <div class="table-responsive table table-hover table-bordered results">
             <table class="table table-hover table-bordered" style="align-content: center">
@@ -25,8 +35,11 @@
                 <tr>
                     <th id="trs-hd" class="col-lg-0">ID du Visiteur</th>
                     <th id="trs-hd" class="col-lg-0">Mois</th>
+                    <th id="trs-hd" class="col-lg-0">Type de frais</th>
                     <th id="trs-hd" class="col-lg-0">Quantité</th>
-                    <th id="trs-hd" class="col-lg-0">Changement ?</th>
+                   <!-- <th id="trs-hd" class="col-lg-0">Télécharger la fiche</th> -->
+                    <th id="trs-hd" class="col-lg-0">Modification</th>
+
                 </tr>
                 <!--@if(\PHPUnit\Framework\isEmpty($getFF))
                     <tr class="warning no-result">
@@ -37,20 +50,30 @@
                 <!-- Foreach permettant de récupérer la variable définit dans notre controller ($getFF) qui récupère l'intégralité des fiches de frais
                  entrées par le visiteurs précédement et pour chaque colonnes on affiche l'id du visiteur, le mois et la quantité renseigné par l'utilisateur lors
                  de la création de la fiche -->
+                <form action="{{route('ModifierFF')}}" method="get">
                 @foreach($getFF as $FicheFrais)
                     <tr>
-                        <td>{{$FicheFrais->visiteur_id}}</td>
-                        <td>{{$FicheFrais->mois}}</td>
-                        <td>{{$FicheFrais->quantite}}</td>
+                        <td><input style="text-align: center" class="form-control" type="text" value="{{$FicheFrais->Numéro_du_Visiteur}}" name="visiteurid" readonly></td>
+                        <td><input style="text-align: center" class="form-control" type="text" value="{{$FicheFrais->mois}}" name="mois" readonly></td>
+                        <td><input style="text-align: center" class="form-control" type="text" value="{{$FicheFrais->type_de_frais}}" name="typefrais" readonly></td>
+                        <td><input style="text-align: center" class="form-control" type="text" value="{{$FicheFrais->Quantite_du_frais_selectionné}}" name="quantitefraisselectionne" readonly></td>
                         <td>
-                            <button class="btn btn-success" style="margin-left: 5px;" type="submit"><i
-                                    class="fa fa-check" style="font-size: 15px;"></i></button>
-                            <button class="btn btn-warning" style="margin-left: 5px;" type="submit"><i
-                                    class="fa fa-pencil-square-o" style="font-size: 15px;"></i></button>
+                            <a href="{{route('ModifierFF')}}">
+                            <button class="btn btn-warning" style="margin-left: 5px;" type="submit" name="button">
+                                <i class="fa fa-pencil-square-o" style="font-size: 15px;"></i>
+                            </button>
+                            </a>
                         </td>
                     </tr>
+                      <!--  <form action="{{route('generation')}}" method="post">
+                            <td>
+                                <button class="btn btn-success" style="margin-left: 5px;" type="submit">
+                                    <i class="fas fa-file-download" style="font-size: 15px;"></i></button>
+                            </td>
+                        </form>
+                        -->
                 @endforeach
-                </tbody>
+                </form>
                 </thead>
             </table>
         </div>

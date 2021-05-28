@@ -12,11 +12,18 @@
 
     <div class="text-center">
         <div class="container text-center">
+                @if(Session::get('fail'))
+                    <div class="alert alert-dismissible alert-danger">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <h4 class="alert-heading">Erreur !</h4>
+                        <p class="mb-0">{{Session::get('fail')}}</p>
+                    </div>
+                @endif
             <form class="align-content-center" id="contactForm" action="/fichefrais/ajout" method="post">
                 @csrf
                 <div class="form-row" style="margin-top: 15px;">
                     <div class="col">
-                        <h1 style="font-size: 30px;font-family: Ubuntu, sans-serif;text-align: center;margin-left: 15%;">
+                        <h1 style="font-size: 25px;font-family: 'Lobster Two', cursive, sans-serif;text-align: center;margin-left: 15%;">
                             Création d'une Fiche de Frais</h1>
                     </div>
                 </div>
@@ -32,23 +39,22 @@
                                                                                           style="font-size: 20px;">Mois
                                 concerné</label><input class="form-control" name="mois" type="month"></div>
                             <!-- Champs permettant la selection entre 4 types de frais-->
-                        <div class="form-group has-feedback" style="height: 70px;width: 320px;"><label for="from_name"
-                                                                                                       style="font-size: 20px;">Type
+                        <div class="form-group has-feedback" style="height: 70px;width: 320px;"><label for="from_name" style="font-size: 20px;">Type
                                 de frais</label><select name="option" class="custom-select custom-select-sm d-xl-flex"
                                                         style="width: 300px;height: 30px;">
-                                <option value="Selectionner une option">Selectionner une option</option>
+                               <option value="Selectionner une option">Selectionner une option</option>
                                 <option name="Forfait Etape">Forfait Etape</option>
-                                <option name="Nuitee">Nuitée</option>
+                                <option name="Nuitée">Nuitée</option>
                                 <option name="Repas">Repas</option>
                                 <option name="Kilometrique">Kilométrage</option>
                             </select></div>
                             <!-- Champs libre permettant le renseignement de la quantité du frais sélectionné -->
                         <div class="form-group has-feedback"><label for="from_phone" style="font-size: 20px;">Quantité
-                                du frais sélectionné<input class="form-control" name="quantite"
+                                du frais sélectionné sur le mois<input class="form-control" name="quantite"
                                                            type="number"><br><br></label>
                             <!-- Bouton de type submit permettant l'envoi du formulaire dans la base de données.-->
                             <button class="btn btn-primary" type="submit"
-                                    style=" text-align: center;margin-top: 0px;margin-left: -260px;">Valider la fiche de frais
+                                    style=" text-align: center;margin-top: 0px;margin-left: -360px;">Valider la fiche de frais
                             </button>
                         </div>
                     </div>

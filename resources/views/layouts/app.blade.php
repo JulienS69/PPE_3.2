@@ -23,10 +23,11 @@
 </head>
 <body>
 <div id="app">
+
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a href="{{ url('/') }}">
-            <img  href="{{"/"}}" src="{{asset('images/logo-gsb_50_50.png')}}">
+            <a  href="{{ url('/') }}">
+                <img style="right: 50px" src="{{asset('images/logo-gsb_50_50.png')}}"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -51,18 +52,30 @@
                             </li>
                         @endif -->
                     @else
-                        <li class="nav-item"><a href="{{route('fichefrais.index')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Création d'une fiche de frais</a>
+                        <li class="nav-item"><a href="{{ url('/home') }}" class="nav-link" style="font-weight: bold; font-size: 14px; justify-content: center; color: #1d68a7">Tableau de bord</a>
                         </li>
-                        <li class="nav-item"><a href="{{route('fichefraishorsforfait.index')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Création d'une fiche de frais hors forfait</a>
+                        <li class="nav-item"><a href="{{route('fichefrais.index')}}" class="nav-link" style="font-weight: bold; font-size: 14px; justify-content: center; color: #1d68a7">Créer une fiche de frais</a>
                         </li>
-                        <li class="nav-item"><a href="{{route('visualisationfichefrais.show')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Consulter les fiches de frais</a>
+                        <li class="nav-item"><a href="{{route('fichefraishorsforfait.index')}}" class="nav-link" style="font-weight: bold; font-size: 14px; justify-content: center; color: #1d68a7">Créer une fiche de frais hors forfait</a>
                         </li>
-                        <li class="nav-item"><a href="{{route('visualisationfichefraishorsforfait.show')}}" class="nav-link" style="font-weight: bold; font-size: 15px; justify-content: center; color: #1d68a7">Consulter les fiches de frais hors forfait</a>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle nav-link" role="button" aria-expanded="false" data-toggle="dropdown" href="#" style="font-weight: bold; font-size: 14px; justify-content: center; color: #1d68a7">Consulter/Modifier des fiches</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" style="font-weight: bold; font-size: 14px; justify-content: center; color: #81b3db" href="{{route('visualisationfichefrais.show')}}">Consulter/Modifier des fiches de frais</a>
+                                <a class="dropdown-item" style="font-weight: bold; font-size: 14px; justify-content: center; color: #81b3db" href="{{route('visualisationfichefraishorsforfait.show')}}">Consulter/Modifier des fiches de frais hors forfait</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle nav-link" role="button" aria-expanded="false" data-toggle="dropdown" href="#" style="font-weight: bold; font-size: 14px; justify-content: center; color: #1d68a7">Téléchargement</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" style="font-weight: bold; font-size: 14px; justify-content: center; color: #81b3db" href="{{route('TelechargementFicheFrais.index')}}">Télécharger une fiche de frais</a>
+                                <!-- <a class="dropdown-item" style="font-weight: bold; font-size: 14px; justify-content: center; color: #81b3db" href="#">Télécharger une fiche de frais hors forfait</a>-->
+                            </div>
                         </li>
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: bold; color: #38c172" v-pre>
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight: bold; font-size: 14px; justify-content: center;  color: #38c172" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 

@@ -3,7 +3,11 @@
 use App\Http\Controllers\FicheFraisController;
 use App\Http\Controllers\FicheFraisHorsForfaitController;
 use App\Http\Controllers\FicheFraisOpeReussieController;
+use App\Http\Controllers\GenerationPDFController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ModificationFichesFraisController;
+use App\Http\Controllers\ModificationFichesFraisHorsForfaitsController;
+use App\Http\Controllers\TelechargementFicheFraisController;
 use App\Http\Controllers\VisualisationFicheFraisController;
 use App\Http\Controllers\VisualisationFicheFraisHorsForfaitController;
 use Illuminate\Support\Facades\Route;
@@ -41,4 +45,24 @@ Route::get('/enregistrementfichefraisreussie/generation', [FicheFraisOpeReussieC
 //Visualisation des fiches de frais.
 
 Route::get('/VisualisationFicheFrais/generation', [VisualisationFicheFraisController::class, 'show'])->name('visualisationfichefrais.show');
+
 Route::get('/VisualisationFicheFraisHorsForfait/generation', [VisualisationFicheFraisHorsForfaitController::class, 'show'])->name('visualisationfichefraishorsforfait.show');
+
+
+// Route pour ce qui concerne la génération du PDF
+Route::post('/GénérationPDFFF/generation', [GenerationPDFController::class, 'GenerationPDF'])->name('generation');
+
+// Route pour ce qui concerne la génération du PDF
+Route::get('/TelechargementFicheFrais/generation', [GenerationPDFController::class, 'index'])->name('TelechargementFicheFrais.index');
+
+// Modification des fiches de frais
+Route::get('/ModificationFicheFrais/modification/', [ModificationFichesFraisController::class, 'ModifierFF'])->name("ModifierFF");
+
+// Modification des fiches de frais Hors Forfaits
+Route::get('/ModificationFicheFraisHorsForfaits/modification', [ModificationFichesFraisHorsForfaitsController::class, 'ModifierFFHF'])->name("ModifierFFHF");
+
+//Vérification des modifications des fiches de frais
+Route::get('/ModificationFicheFrais/Verification_Modification', [ModificationFichesFraisController::class, 'Verification_Modification'])->name("verrifier_modif");
+
+//Vérification des modifications des fiches de frais hors forfaits
+Route::get('/ModificationFicheFraisHorsForfaits/Verification_ModificationFFHF', [ModificationFichesFraisHorsForfaitsController::class, 'Verification_ModificationFFHF'])->name("verrifier_modifFFHF");

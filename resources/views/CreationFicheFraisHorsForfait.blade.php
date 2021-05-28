@@ -8,7 +8,7 @@
 
     <div class="form-row" style="margin-top: 15px;">
         <div class="col">
-            <h1 style="font-size: 30px;font-family: Ubuntu, sans-serif;text-align: center;margin-left: 15%;">
+            <h1 style="font-size: 25px;font-family: 'Lobster Two', cursive, sans-serif;text-align: center;margin-left: 15%;">
                 Création d'une Fiche de Frais Hors Forfait</h1>
         </div>
     </div>

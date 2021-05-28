@@ -1,10 +1,8 @@
 <!-- Vue permettant l'affichage d'un message de réussite pour la validation d'une fiche de frais renseigné par un visiteur dans la base de données -->
 
 @extends('layouts/app')
+<link rel="icon" href="{{asset('images/pill.ico')}}">
 
-<head>
-    <link rel="icon" href="images/pill.png">
-</head>
 
     @section('extra-css')
         <link href="{{asset('css/operationreussie.css')}}"

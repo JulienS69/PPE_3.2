@@ -31,8 +31,8 @@ class DatabaseSeeder extends Seeder
 
         DB::table('visiteurs')->insert(
             [
-                'nom' => 'Enzo',
-                'prenom' => 'Albert',
+                'nom' => 'Albert',
+                'prenom' => 'Enzo',
                 'adresse' => '10 rue peroli',
                 'cp' => '69003',
                 'ville' => 'Lyon',
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert(
             [
-                'name' => 'jseux',
+                'name' => 'Julien',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin'),
                 'visiteur_id' => '1',
@@ -80,9 +80,36 @@ class DatabaseSeeder extends Seeder
         DB::table('etats')->insert(
             [
                 'id' => '4',
-                'libelle' => 'Validee et mise en paiment',
+                'libelle' => 'Validee et mise en paiement',
             ]
         );
-
+        DB::table('fraisforfaits')->insert(
+            [
+                'id' => 1,
+                'libelle' => 'Forfait Etape',
+                'montant' => '110.00',
+            ]
+        );
+        DB::table('fraisforfaits')->insert(
+            [
+                'id' => 2,
+                'libelle' => 'Nuitee',
+                'montant' => '80.00',
+            ]
+        );
+        DB::table('fraisforfaits')->insert(
+            [
+                'id' => 3,
+                'libelle' => 'Repas Restaurant',
+                'montant' => '25.00',
+            ]
+        );
+        DB::table('fraisforfaits')->insert(
+            [
+                'id' => 4,
+                'libelle' => 'Frais Kilometrique',
+                'montant' => '0.62',
+            ]
+        );
     }
 }

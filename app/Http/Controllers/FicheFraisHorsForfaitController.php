@@ -16,17 +16,30 @@ class FicheFraisHorsForfaitController extends Controller
         return view('CreationFicheFraisHorsForfait', compact("visiteur"));
     }
 
-        public function store(Request $request)
+    public function store(Request $request)
     {
+        $id = Auth::user()->id;
+        $FicheFHFExiste = false;
+
+       /* $recupdate = Lignefraishorsforfaits::addSelect('visiteur_id', 'date')
+            ->where('visiteur_id', $id)
+            ->first();
+        foreach ($recupdate as $recupunedate){
+            //Tester chaque date récupérée pour voir si elle existe déjà
+            if ($recupunedate[1] = $request->date){
+                $FicheFHFExiste = true;
+            }
+        }
+       */
+       // if ($FicheFHFExiste != true){
         $cffhf = new Lignefraishorsforfaits();
         $cffhf->visiteur_id = Auth::user()->id;
-        $cffhf->date = $request-> date;
+        $cffhf->date = $request->date;
         $cffhf->libelle = $request->motiffrais;
         $cffhf->montant = $request->montant;
         $cffhf->mois = $request->datengagement;
         $cffhf->save();
-
-        return view('OperationValideFicheFrais');
+        return view('OperationValideFicheFraisHorsForfaits');
     }
 
 }
